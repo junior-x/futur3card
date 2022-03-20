@@ -4,6 +4,8 @@ import 'package:consumindo_api/models/recipe.dart';
 import 'package:consumindo_api/models/recipe.api.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
