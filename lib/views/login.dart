@@ -12,6 +12,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,21 +47,31 @@ class _LoginState extends State<Login> {
                   Container(
                     margin:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    child: TextField(
-                      controller: widget.namePass,
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        hintText: 'Name',
-                        hintStyle: TextStyle(color: Colors.deepPurple[200]),
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 59, 47, 75),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color.fromARGB(0, 255, 255, 255)),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                          borderRadius: BorderRadius.circular(12),
+                    child: Form(
+                      key: _formKey,
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                        controller: widget.namePass,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          hintText: 'Name',
+                          hintStyle: TextStyle(color: Colors.deepPurple[200]),
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 59, 47, 75),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(0, 255, 255, 255)),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
                       ),
                     ),
@@ -77,13 +88,14 @@ class _LoginState extends State<Login> {
                         hintText: 'Password',
                         hintStyle: TextStyle(color: Colors.deepPurple[200]),
                         filled: true,
-                        fillColor: Color.fromARGB(255, 59, 47, 75),
+                        fillColor: const Color.fromARGB(255, 59, 47, 75),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color.fromARGB(0, 255, 255, 255)),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(0, 255, 255, 255)),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
+                          borderSide: const BorderSide(color: Colors.white),
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
@@ -93,15 +105,20 @@ class _LoginState extends State<Login> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 1,
-                margin: EdgeInsets.symmetric(horizontal: 16),
+                margin: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
                 ),
                 child: TextButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                   onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) =>
-                          HomePage(name: widget.namePass.text))),
+                         HomePage(name: widget.namePass.text))
+                         );
+                }
+              },
                   child: const Text(
                     'Entrar',
                     style: TextStyle(color: Colors.black),

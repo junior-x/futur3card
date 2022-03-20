@@ -10,9 +10,6 @@ class HomePage extends StatefulWidget {
     required this.name,
   }) : super(key: key);
   final String name;
-  // HomePage({
-  //   required this.name
-  // });
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -48,6 +45,7 @@ class _HomePageState extends State<HomePage> {
               Icon(Icons.restaurant_menu),
               SizedBox(width: 10),
               Text('Food Recipes'),
+              SizedBox(width: 1),
             ],
           ),
         ),
@@ -59,9 +57,9 @@ class _HomePageState extends State<HomePage> {
                     height: 100,
                     child: Row(children: [
                       Container(
-                        padding: EdgeInsets.symmetric(vertical: 30),
-                        margin: EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
+                        padding: const EdgeInsets.symmetric(vertical: 30),
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
+                        child: const Text(
                           '👋',
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 30),
@@ -69,14 +67,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Text(
                         widget.name,
-                        style: TextStyle(fontSize: 30, color: Colors.black),
+                        style: const TextStyle(fontSize: 30, color: Colors.black),
                       )
                     ]),
                   ),
                   GridView.builder(
                     shrinkWrap: true,
-                    physics: ScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    physics: const ScrollPhysics(),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 1, childAspectRatio: (1 / .4)),
                     itemCount: _recipes.length,
                     itemBuilder: (context, index) {
