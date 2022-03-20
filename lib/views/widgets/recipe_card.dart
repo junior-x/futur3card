@@ -18,13 +18,14 @@ class RecipeCard extends StatefulWidget {
 }
 
 class _RecipeCardState extends State<RecipeCard> {
+
+
   @override
   Widget build(BuildContext context) {
 
-    ///String value;
+    ///var _imageUrlControler = new TextEditingController();
 
-    var image = widget.thumbnailUrl;
-
+    ///var thumbnailUrl;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
@@ -53,10 +54,7 @@ class _RecipeCardState extends State<RecipeCard> {
         ),
       ),
       child: TextButton(
-        onPressed: () => {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => const CardInside()))
-        },
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => CardInside(thumbnailUrlPass: widget.thumbnailUrl))),
         child: Stack(
           children: [
             Align(

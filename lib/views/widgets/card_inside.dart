@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class CardInside extends StatefulWidget {
-   const CardInside({Key? key }) : super(key: key);
+   ///const CardInside({Key? key }) : super(key: key);
   // var image;
+  //final CardInside value;
+  final String thumbnailUrlPass;
+  CardInside({
+    required this.thumbnailUrlPass,
+  });
   @override
   State<CardInside> createState() => _CardInsideState();
 }
@@ -12,6 +17,7 @@ class _CardInsideState extends State<CardInside> {
 
   ///String value;
   ///var image;
+  
 
   _CardInsideState();
   @override
@@ -28,7 +34,7 @@ class _CardInsideState extends State<CardInside> {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1,
                   color: Colors.deepPurple,
-                  child: Container(),
+                  child: Image.network(widget.thumbnailUrlPass),
                 ),
               ),
               Align(
@@ -47,21 +53,21 @@ class _CardInsideState extends State<CardInside> {
                 width: MediaQuery.of(context).size.width * 1,
                 padding: const  EdgeInsets.all(12),
                 margin: const EdgeInsets.only(left: 16, right: 16, top: 12),
-                decoration: const BoxDecoration(color: Color.fromARGB(255, 242, 236, 246)),
+                decoration:  BoxDecoration(color: Color.fromARGB(255, 242, 236, 246), borderRadius: BorderRadius.circular(9.0)),
                 child: const Text(''),
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 1,
                 padding: const  EdgeInsets.all(12),
                 margin: const EdgeInsets.only(left: 16, right: 16, top: 12),
-                decoration: const BoxDecoration(color: Color.fromARGB(255, 242, 236, 246)),
+                decoration: BoxDecoration(color: Color.fromARGB(255, 242, 236, 246), borderRadius: BorderRadius.circular(9.0)),
                 child: const Text(''),
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 1,
                 padding: const  EdgeInsets.all(12),
-                margin: const EdgeInsets.only(left: 16, right: 16, top: 12),
-                decoration: const BoxDecoration(color: Color.fromARGB(255, 242, 236, 246)),
+                margin: const EdgeInsets.only(left: 16, right: 180, top: 12),
+                decoration: BoxDecoration(color: Color.fromARGB(255, 242, 236, 246), borderRadius: BorderRadius.circular(9.0)),
                 child: const Text(''),
               ),
               
