@@ -23,7 +23,7 @@ class _CardInsideState extends State<CardInside> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: Color.fromARGB(255, 85, 66, 110),
+            backgroundColor: const Color.fromARGB(255, 85, 66, 110),
             shadowColor: Colors.grey,
             expandedHeight: 210,
             floating: true,
@@ -37,6 +37,8 @@ class _CardInsideState extends State<CardInside> {
               centerTitle: true,
               title: Text(
                 widget.titlePass,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(color: Colors.white),
               ),
             ),

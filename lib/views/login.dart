@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
                     Container(
                       margin: const EdgeInsets.all(18),
                       child: const Icon(
-                        Icons.restaurant_menu,
+                        Icons.rocket_launch,
                         size: 90,
                         color: Colors.white,
                       ),
