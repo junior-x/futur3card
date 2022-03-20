@@ -19,20 +19,16 @@ class RecipeCard extends StatefulWidget {
 
 class _RecipeCardState extends State<RecipeCard> {
 
-
   @override
   Widget build(BuildContext context) {
 
-    ///var _imageUrlControler = new TextEditingController();
-
-    ///var thumbnailUrl;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
       width: MediaQuery.of(context).size.width,
-      height: 180,
+      height: 150,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(21),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.6),
@@ -54,7 +50,7 @@ class _RecipeCardState extends State<RecipeCard> {
         ),
       ),
       child: TextButton(
-        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => CardInside(thumbnailUrlPass: widget.thumbnailUrl))),
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => CardInside(thumbnailUrlPass: widget.thumbnailUrl, titlePass: widget.title, cookTimePass: widget.cookTime))),
         child: Stack(
           children: [
             Align(
@@ -67,7 +63,7 @@ class _RecipeCardState extends State<RecipeCard> {
                     color: Colors.white,
                   ),
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                  maxLines: 1,
                   textAlign: TextAlign.center,
                 ),
               ),

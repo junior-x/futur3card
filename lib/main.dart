@@ -1,3 +1,4 @@
+import 'package:consumindo_api/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:consumindo_api/views/home.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(color: Colors.white),
         ),
       ),
-      home: HomePage(),
+      home: Login(),
     );
   }
 }
