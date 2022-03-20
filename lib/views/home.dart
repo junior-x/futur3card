@@ -5,7 +5,10 @@ import 'package:consumindo_api/models/recipe.api.dart';
 
 class HomePage extends StatefulWidget {
   //const HomePage({Key? key}) : super(key: key);
-  const HomePage({Key? key,required this.name,}) : super(key: key);
+  const HomePage({
+    Key? key,
+    required this.name,
+  }) : super(key: key);
   final String name;
   // HomePage({
   //   required this.name
@@ -30,6 +33,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _isLoading = false;
     });
+
     ///print(_recipes);
   }
 
@@ -37,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Color.fromARGB(255, 85, 66, 110),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
