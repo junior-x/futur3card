@@ -1,6 +1,7 @@
+import 'package:consumindo_api/views/widgets/card_inside.dart';
 import 'package:flutter/material.dart';
 
-class RecipeCard extends StatelessWidget {
+class RecipeCard extends StatefulWidget {
   final String title;
   final String rating;
   final String cookTime;
@@ -11,8 +12,19 @@ class RecipeCard extends StatelessWidget {
     required this.rating,
     required this.thumbnailUrl,
   });
+
+  @override
+  State<RecipeCard> createState() => _RecipeCardState();
+}
+
+class _RecipeCardState extends State<RecipeCard> {
   @override
   Widget build(BuildContext context) {
+
+    ///String value;
+
+    var image = widget.thumbnailUrl;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
@@ -36,19 +48,22 @@ class RecipeCard extends StatelessWidget {
             Colors.black.withOpacity(0.35),
             BlendMode.multiply,
           ),
-          image: NetworkImage(thumbnailUrl),
+          image: NetworkImage(widget.thumbnailUrl),
           fit: BoxFit.cover,
         ),
       ),
       child: TextButton(
-        onPressed: () => {},
+        onPressed: () => {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const CardInside()))
+        },
         child: Stack(
           children: [
             Align(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5.0),
                 child: Text(
-                  title,
+                  widget.title,
                   style: const TextStyle(
                     fontSize: 19,
                     color: Colors.white,
@@ -79,7 +94,10 @@ class RecipeCard extends StatelessWidget {
                           size: 18,
                         ),
                         const SizedBox(width: 7),
-                        Text(rating, style: const TextStyle(color: Colors.white),),
+                        Text(
+                          widget.rating,
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ],
                     ),
                   ),
@@ -98,7 +116,10 @@ class RecipeCard extends StatelessWidget {
                           size: 18,
                         ),
                         const SizedBox(width: 7),
-                        Text(cookTime, style: const TextStyle(color: Colors.white),),
+                        Text(
+                          widget.cookTime,
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ],
                     ),
                   )
